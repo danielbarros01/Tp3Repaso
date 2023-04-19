@@ -40,4 +40,8 @@
             android:id="@+id/action_detallesFragment_to_nav_actividades"
             app:destination="@id/nav_actividades" />
     </fragment>
+    <dialog
+        android:id="@+id/nav_salir"
+        android:name="com.example.mimenu.Alerta"
+        android:label="Alerta" />
 </navigation>

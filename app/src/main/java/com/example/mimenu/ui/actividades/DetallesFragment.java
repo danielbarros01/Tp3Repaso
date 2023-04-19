@@ -20,6 +20,9 @@ import com.example.mimenu.databinding.FragmentActividadBinding;
 import com.example.mimenu.databinding.FragmentDetallesBinding;
 import com.example.mimenu.modelo.Actividad;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DetallesFragment extends Fragment {
 
     private FragmentDetallesBinding binding;
@@ -52,6 +55,19 @@ public class DetallesFragment extends Fragment {
             @Override
             public void onChanged(Actividad actividad) {
                 binding.tvNombreDetalles.setText(actividad.getNombre());
+                binding.txDescripcion.setText(actividad.getDescripcion());
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String fechaCadena = sdf.format(actividad.getFecha());
+                binding.tvFechaDetalles.setText(fechaCadena);
+
+                //Para obtener la hora con solo hora y minutos-------------------
+                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+                Date hora = actividad.getHora();
+                String horaYMinutos = dateFormat.format(hora);
+
+                binding.tvHorasDetalles.setText(horaYMinutos);
+
             }
         });
     }
