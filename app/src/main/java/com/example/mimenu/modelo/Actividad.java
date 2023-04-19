@@ -1,10 +1,11 @@
 package com.example.mimenu.modelo;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Actividad {
+public class Actividad implements Serializable {
     private String nombre, descripcion;
     private Date fecha;
     private Date hora;

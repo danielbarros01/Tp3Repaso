@@ -1,17 +1,27 @@
 package com.example.mimenu.ui.actividades;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mimenu.R;
 import com.example.mimenu.modelo.Actividad;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
@@ -40,7 +50,7 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.View
 
     //Por cada item
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.nombre.setText(actividades.get(position).getNombre());
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -54,6 +64,20 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.View
 
         holder.hora.setText(horaYMinutos);
         //----------------------------------------------------------------
+
+        //Click del boton
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("actividad", actividades.get(position));
+                DetallesFragment detallesFragment = new DetallesFragment();
+                detallesFragment.setArguments(bundle);
+                FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, detallesFragment).commit();
+            }
+        });
+
     }
 
     @Override
@@ -64,9 +88,12 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.View
     //La que conoce nuestro item
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nombre, fecha, hora;
+        CardView card;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            card = itemView.findViewById(R.id.cardViewId);
+
             nombre = itemView.findViewById(R.id.tvNombre);
             fecha = itemView.findViewById(R.id.tvFecha);
             hora = itemView.findViewById(R.id.tvHora);
