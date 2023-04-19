@@ -37,6 +37,15 @@ public class ActividadFragment extends Fragment {
         binding = FragmentActividadBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        return root;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(ActividadViewModel.class);
+        // TODO: Use the ViewModel
+
         RecyclerView rv = binding.rvLista;
         GridLayoutManager grilla = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false);
         rv.setLayoutManager(grilla);
@@ -48,15 +57,6 @@ public class ActividadFragment extends Fragment {
                 rv.setAdapter(adapter);
             }
         });
-
-        return root;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(ActividadViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 }

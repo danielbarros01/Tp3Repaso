@@ -44,11 +44,11 @@ public class Actividad {
         this.fecha = fecha;
     }
 
-    public Calendar getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(Calendar hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 }

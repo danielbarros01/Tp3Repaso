@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mimenu.R;
 import com.example.mimenu.modelo.Actividad;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.ViewHolder>{
@@ -40,16 +42,17 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nombre.setText(actividades.get(position).getNombre());
-        holder.fecha.setText((CharSequence) actividades.get(position).getFecha());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaCadena = sdf.format(actividades.get(position).getFecha());
+        holder.fecha.setText(fechaCadena);
 
         //Para obtener la hora con solo hora y minutos-------------------
-        Calendar hora = actividades.get(position).getHora();
-        int minutos = 0;
-        int segundos = 0;
-        minutos = hora.MINUTE;
-        segundos = hora.SECOND;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Date hora = actividades.get(position).getHora();
+        String horaYMinutos = dateFormat.format(hora);
 
-        holder.hora.setText(String.format("%02d:%02d", minutos, segundos));
+        holder.hora.setText(horaYMinutos);
         //----------------------------------------------------------------
     }
 

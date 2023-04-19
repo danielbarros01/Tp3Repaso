@@ -19,7 +19,7 @@ import java.util.Date;
 public class ActividadViewModel extends AndroidViewModel {
 
     ArrayList<Actividad> lista = new ArrayList<>();
-    private MutableLiveData<ArrayList<Actividad>> actividades;
+    private MutableLiveData<ArrayList<Actividad>> actividades = new MutableLiveData<>();;
 
 
     public ActividadViewModel(@NonNull Application application) {
