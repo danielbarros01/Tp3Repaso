@@ -26,4 +26,9 @@
         android:name="com.example.mimenu.ui.mapa.MapaMercadosFragment"
         android:label="fragment_mapa_mercados"
         tools:layout="@layout/fragment_mapa_mercados" />
+    <fragment
+        android:id="@+id/nav_llamar"
+        android:name="com.example.mimenu.ui.llamar.LlamarFragment"
+        android:label="fragment_llamar"
+        tools:layout="@layout/fragment_llamar" />
 </navigation>
