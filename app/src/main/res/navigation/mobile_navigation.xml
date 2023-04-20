@@ -17,31 +17,13 @@
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.mimenu.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/nav_actividades"
-        android:name="com.example.mimenu.ui.actividades.ActividadFragment"
-        android:label="fragment_actividad"
-        tools:layout="@layout/fragment_actividad" >
-        <action
-            android:id="@+id/action_nav_actividades_to_detallesFragment"
-            app:destination="@id/detallesFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detallesFragment"
-        android:name="com.example.mimenu.ui.actividades.DetallesFragment"
-        android:label="fragment_detalles"
-        tools:layout="@layout/fragment_detalles" >
-        <action
-            android:id="@+id/action_detallesFragment_to_nav_actividades"
-            app:destination="@id/nav_actividades" />
-    </fragment>
     <dialog
         android:id="@+id/nav_salir"
         android:name="com.example.mimenu.Alerta"
         android:label="Alerta" />
+    <fragment
+        android:id="@+id/nav_mercados"
+        android:name="com.example.mimenu.ui.mapa.MapaMercadosFragment"
+        android:label="fragment_mapa_mercados"
+        tools:layout="@layout/fragment_mapa_mercados" />
 </navigation>

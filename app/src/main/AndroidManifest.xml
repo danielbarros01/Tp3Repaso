@@ -4,6 +4,9 @@
     <!-- Agrego permission -->
     <!-- Agrego usesCleartextTraffic en true -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,12 @@
         android:theme="@style/Theme.MiMenu"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <!-- Codigo agregado para usar maps -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDsmTKS7DqquAsf3GWuZm5DgM0H0K_3axQ" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -5,9 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_actividades"
-            android:icon="@android:drawable/ic_menu_myplaces"
-            android:title="Mis actividades" />
+            android:id="@+id/nav_llamar"
+            android:icon="@android:drawable/sym_call_outgoing"
+            android:title="Llamar" />
+        <item
+            android:id="@+id/nav_mercados"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="Mercados cercanos" />
         <item
             android:id="@+id/nav_salir"
             android:icon="?attr/actionModeCloseDrawable"
