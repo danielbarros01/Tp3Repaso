@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:label="Llamar"
     tools:context=".ui.llamar.LlamarFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,13 +13,17 @@
 
         <EditText
             android:id="@+id/tvNumero"
-            android:layout_width="410dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="156dp"
+            android:layout_width="411dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="120dp"
+            android:background="@null"
             android:ems="10"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:hint="xxxx-xxxxxx"
             android:inputType="number|phone"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,13 +32,15 @@
 
         <ImageButton
             android:id="@+id/btnLlamar"
-            android:layout_width="119dp"
-            android:layout_height="98dp"
-            android:layout_marginBottom="344dp"
+            android:layout_width="116dp"
+            android:layout_height="118dp"
+            android:layout_marginBottom="320dp"
+            android:background="@drawable/button_llamada"
             android:src="@android:drawable/sym_call_outgoing"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
